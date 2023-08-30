@@ -54,13 +54,17 @@ def editar_contato():
         print(contador + 1, ":", elementos)
         contador = contador + 1
     qual = int(input("\nInforme o contato que deseja editar:"))
-    nome = input("Informe o nome: ")
-    telefone = input("Informe o telefone:")
-    edit_contato.append(nome)
-    edit_contato.append(telefone)
-    contatos[qual - 1] = edit_contato
-    print('Contato editado com sucesso!\n')
-    print('***************************\n')
+    if qual-1 < len(contatos):
+        nome = input("Informe o nome: ")
+        telefone = input("Informe o telefone:")
+        edit_contato.append(nome)
+        edit_contato.append(telefone)
+        contatos[qual - 1] = edit_contato
+        print('Contato editado com sucesso!\n')
+        print('***************************\n')
+    else:
+        print("Contato Inexistente!")
+        print('***************************\n')
 
 
 def remover_contato():
@@ -70,10 +74,15 @@ def remover_contato():
     for elementos in contatos:
         print(contador + 1, ":", elementos)
         contador = contador + 1
-    qual = int(input("\n Informe o contato que deseja remover:"))
-    contatos.pop(qual - 1)
-    print("Contato removido com sucesso!\n")
-    print('***************************\n')
+    qual = int(input("\nInforme o contato que deseja remover:"))
+    if qual-1 < len(contatos):
+        contatos.pop(qual - 1)
+        print("Contato removido com sucesso!\n")
+        print('***************************\n')
+    else:
+        print("Contato Inexistente!")
+        print('***************************\n')
+
 
 def options():
     opcao = int(input("\nInforme a opção desejada: "))
